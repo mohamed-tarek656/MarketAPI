@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "2caa5311-af73-4d84-b16f-088311dbc072",
+    "name": "MarketAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52155479",
+    "_collection_link": "https://go.postman.co/collection/52155479-2caa5311-af73-4d84-b16f-088311dbc072?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7034/api/Products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7034",
+          "path": [
+            "api",
+            "Products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Product By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7034/api/Products/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7034",
+          "path": [
+            "api",
+            "Products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Mouse\",\r\n  \"price\": 150,\r\n  \"quantity\": 5\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7034/api/Products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7034",
+          "path": [
+            "api",
+            "Products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Mouse Updated\",\r\n  \"price\": 200,\r\n  \"quantity\": 10\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7034/api/Products/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7034",
+          "path": [
+            "api",
+            "Products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7034/api/Products/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7034",
+          "path": [
+            "api",
+            "Products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
