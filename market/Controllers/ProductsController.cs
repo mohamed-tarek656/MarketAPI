@@ -2,6 +2,7 @@
 using market.dtos;
 using market.Models;
 using market.Services.internalinterface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace market.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         // private readonly marketdBContext _context
@@ -31,6 +33,7 @@ namespace market.Controllers
 
         // GET: api/Products
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return Ok(await _service.getallasync());
@@ -38,6 +41,7 @@ namespace market.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await _service.getbyid(id);
@@ -53,6 +57,7 @@ namespace market.Controllers
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
             //if (id != product.Id)
@@ -89,6 +94,7 @@ namespace market.Controllers
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Policy = "AdminOnly")]
         public async Task<ActionResult<dtopostproduct>> PostProduct(dtopostproduct productpost)
         {
             //if (!ModelState.IsValid) return BadRequest(productpost);
@@ -121,6 +127,7 @@ namespace market.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             //var product = await _context.Products.FindAsync(id);
